@@ -1,0 +1,29 @@
+/// <reference types="node" />
+import { TupleItem } from "./tuple";
+export declare class TupleReader {
+    private readonly items;
+    constructor(items: TupleItem[]);
+    get remaining(): number;
+    peek(): TupleItem;
+    pop(): TupleItem;
+    skip(num?: number): this;
+    readBigNumber(): bigint;
+    readBigNumberOpt(): bigint | null;
+    readNumber(): number;
+    readNumberOpt(): number | null;
+    readBoolean(): boolean;
+    readBooleanOpt(): boolean | null;
+    readAddress(): import("..").Address;
+    readAddressOpt(): import("..").Address | null;
+    readCell(): import("..").Cell;
+    readCellOpt(): import("..").Cell | null;
+    readTuple(): TupleReader;
+    readTupleOpt(): TupleReader | null;
+    private static readLispList;
+    readLispListDirect(): TupleItem[];
+    readLispList(): TupleItem[];
+    readBuffer(): Buffer;
+    readBufferOpt(): Buffer | null;
+    readString(): string;
+    readStringOpt(): string | null;
+}

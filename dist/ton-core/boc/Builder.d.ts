@@ -1,0 +1,54 @@
+/// <reference types="node" />
+import { Address } from "../address/Address";
+import { ExternalAddress } from "../address/ExternalAddress";
+import { BitString } from "./BitString";
+import { Writable } from "./Writable";
+import { Cell } from "./Cell";
+import { Slice } from "./Slice";
+import { Dictionary, DictionaryKey, DictionaryKeyTypes, DictionaryValue } from "../dict/Dictionary";
+import { Maybe } from "../utils/maybe";
+export declare function beginCell(): Builder;
+export declare class Builder {
+    private _bits;
+    private _refs;
+    constructor();
+    get bits(): number;
+    get refs(): number;
+    get availableBits(): number;
+    get availableRefs(): number;
+    storeBit(value: boolean | number): this;
+    storeBits(src: BitString): this;
+    storeBuffer(src: Buffer, bytes?: Maybe<number>): this;
+    storeMaybeBuffer(src: Buffer | null, bytes?: Maybe<number>): this;
+    storeUint(value: bigint | number, bits: number): this;
+    storeMaybeUint(value: Maybe<number | bigint>, bits: number): this;
+    storeInt(value: bigint | number, bits: number): this;
+    storeMaybeInt(value: Maybe<number | bigint>, bits: number): this;
+    storeVarUint(value: number | bigint, bits: number): this;
+    storeMaybeVarUint(value: Maybe<number | bigint>, bits: number): this;
+    storeVarInt(value: number | bigint, bits: number): this;
+    storeMaybeVarInt(value: Maybe<number | bigint>, bits: number): this;
+    storeCoins(amount: number | bigint): this;
+    storeMaybeCoins(amount: Maybe<number | bigint>): this;
+    storeAddress(address: Maybe<Address | ExternalAddress>): this;
+    storeRef(cell: Cell | Builder): this;
+    storeMaybeRef(cell?: Maybe<Cell | Builder>): this;
+    storeSlice(src: Slice): this;
+    storeMaybeSlice(src?: Maybe<Slice>): this;
+    storeBuilder(src: Builder): this;
+    storeMaybeBuilder(src?: Maybe<Builder>): this;
+    storeWritable(writer: ((builder: Builder) => void) | Writable): this;
+    storeMaybeWritable(writer?: Maybe<((builder: Builder) => void) | Writable>): this;
+    store(writer: ((builder: Builder) => void) | Writable): this;
+    storeStringTail(src: string): this;
+    storeMaybeStringTail(src?: Maybe<string>): this;
+    storeStringRefTail(src: string): this;
+    storeMaybeStringRefTail(src?: Maybe<string | null>): this;
+    storeDict<K extends DictionaryKeyTypes, V>(dict?: Maybe<Dictionary<K, V>>, key?: Maybe<DictionaryKey<K>>, value?: Maybe<DictionaryValue<V>>): this;
+    storeDictDirect<K extends DictionaryKeyTypes, V>(dict: Dictionary<K, V>, key?: Maybe<DictionaryKey<K>>, value?: Maybe<DictionaryValue<V>>): this;
+    endCell(opts?: {
+        exotic?: boolean;
+    }): Cell;
+    asCell(): Cell;
+    asSlice(): Slice;
+}

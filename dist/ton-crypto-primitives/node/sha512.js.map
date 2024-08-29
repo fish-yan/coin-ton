@@ -1,0 +1,1 @@
+{"version":3,"file":"sha512.js","sourceRoot":"","sources":["../../../src/ton-crypto-primitives/node/sha512.ts"],"names":[],"mappings":";;;;;;AAQA,oDAA4B;AAErB,KAAK,UAAU,MAAM,CAAC,MAAuB;IAChD,OAAO,gBAAM,CAAC,UAAU,CAAC,QAAQ,CAAC,CAAC,MAAM,CAAC,MAAM,CAAC,CAAC,MAAM,EAAE,CAAC;AAC/D,CAAC;AAFD,wBAEC"}

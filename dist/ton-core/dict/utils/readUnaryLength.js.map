@@ -1,0 +1,1 @@
+{"version":3,"file":"readUnaryLength.js","sourceRoot":"","sources":["../../../../src/ton-core/dict/utils/readUnaryLength.ts"],"names":[],"mappings":";;;AAEA,SAAgB,eAAe,CAAC,KAAY;IACxC,IAAI,GAAG,GAAG,CAAC,CAAC;IACZ,OAAO,KAAK,CAAC,OAAO,EAAE,EAAE;QACpB,GAAG,EAAE,CAAC;KACT;IACD,OAAO,GAAG,CAAC;AACf,CAAC;AAND,0CAMC"}
